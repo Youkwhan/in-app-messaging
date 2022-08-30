@@ -22,12 +22,13 @@ export const AuthContextProvider = ({ children }) => {
 
 	const logOut = () => {
 		signOut(auth);
+		navigate("/")
 	};
 
 	useEffect(() => {
 		const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
 			setUser(currentUser);
-			console.log("User", currentUser);
+			//console.log("User", currentUser);
 			setLoading(false);
 			if (user != null) {
 				navigate("/chats");
